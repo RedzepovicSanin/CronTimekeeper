@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+After cloning this repo, first, you need to enter 'bundle install' in terminal.
 
-Things you may want to cover:
+Run 'rake db:migrate' and after that 'rake db:seed' to get custom users in application.
+You can find those in folder db/seeds.rb and their informations.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Everything else is based on your preferences. Enjoy!
