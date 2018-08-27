@@ -1,0 +1,25 @@
+h2 Edit = @user.first_name.to_s.humanize
+
+= form_for([:user, @user.becomes(User)], url: user_path(@user), html: { method: :put}) do |f|
+  - f.object = @user.becomes(@user.class)
+  - if @user.errors.any?
+    #error_explanation
+      ul
+      - @user.errors.full_messages.each do |message|
+        li = message
+  .field
+    = f.label :first_name
+    = f.text_field :first_name, autofocus: true, autocomplete: "first_name"
+
+  .field
+    = f.label :last_name
+    = f.text_field :last_name, autofocus: true, autocomplete: "last_name"
+
+  .field
+    = f.label :email
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+    
+  .actions
+    = f.submit 'Update'
+
+= link_to 'Back', users_path

@@ -1,0 +1,33 @@
+.table {
+  margin-bottom: 4rem;
+  border-bottom: 1px solid #333;
+  thead {
+    font-size: 1.5em;
+  }
+  thead, tbody, tfoot {
+    border-bottom: 1px solid #333;
+    tr {
+      border-bottom: 1px solid #333;
+      th {
+        border-bottom: 1px solid #333;  
+        border-top: 0px solid #333;
+      }
+      td { 
+        border-bottom: 1px solid #333;
+      }
+    }
+  }
+}
+ul {
+  list-style: none;
+  li {
+    float: right;
+    margin: 0px 5px;
+  }
+}
+a {
+  color: rgb(110, 177, 151);
+}
+a:hover {
+  color: rgb(61, 170, 128);
+}

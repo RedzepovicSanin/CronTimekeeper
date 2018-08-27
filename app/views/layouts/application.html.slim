@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title TimeKeeper
+    = csrf_meta_tags
+
+    = favicon_link_tag 'favicon.png'
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    - if user_signed_in?
+      .topnav
+          = link_to 'Dashboard', root_url, method: :get
+          = link_to 'Users', users_url, method: :get
+          = link_to 'Log out', destroy_user_session_path, method: :delete, class: :logout
+    - if notice || alert
+      .notifications
+        - if notice
+          p.notice = notice
+        - if alert
+          p.alert = alert
+    div.container-fluid
+      div class=('main' unless controller?("dashboard", "users") && action?("index"))
+        = yield

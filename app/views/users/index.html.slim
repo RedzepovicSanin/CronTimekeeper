@@ -1,0 +1,69 @@
+table.table
+  thead
+    tr
+      th ADMIN TABLE
+      th
+      th
+      th
+  tbody
+    tr
+      th Firstname
+      th Lastname
+      th Email
+      th
+    - @admins.each do |admin|
+      tr 
+        td = admin.first_name
+        td = admin.last_name
+        td = admin.email
+        td.actions
+          ul
+            - if can? :delete, @admins
+              li = link_to 'Delete', user_path(admin), data: { confirm: "Are you sure?" }, method: :delete
+            - if can? :read, @admins
+              li = link_to 'Profile', user_path(admin)
+            - if can? :update, @admins
+              li = link_to 'Edit', edit_user_path(admin)
+  - if current_user.type == "Admin"            
+    tfoot
+      tr
+        - if can? :create, @admins
+          th = link_to "Create New Admin", new_user_path(type: :Admin)
+        th
+        th
+        th
+
+table.table
+  thead
+    tr
+      th EMPLOYEE TABLE
+      th
+      th
+      th
+  tbody
+    tr
+      th Firstname
+      th Lastname
+      th Email
+      th
+    - @employees.each do |employee|
+      tr 
+        td = employee.first_name
+        td = employee.last_name
+        td = employee.email
+        td.actions
+          ul
+            - if can? :delete, @employees
+              li = link_to 'Delete', user_path(employee), data: { confirm: "Are you sure?" }, method: :delete
+            - if can? :read, @employees
+              li = link_to 'Profile', user_path(employee)
+            - if can? :update, @employees
+              li = link_to 'Edit', edit_user_path(employee)
+  - if current_user.type == "Admin"
+    tfoot
+      tr
+        - if can? :create, @employees
+          th = link_to "Create New Employee", new_user_path(type: :Employee)
+        th
+        th
+        th
