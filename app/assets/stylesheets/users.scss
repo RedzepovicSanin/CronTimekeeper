@@ -1,20 +1,14 @@
-.table {
-  margin-bottom: 4rem;
-  border-bottom: 1px solid #333;
-  thead {
-    font-size: 1.5em;
+.user-table {
+  margin: 1em auto 3em;
+  .row {
+    padding: 5px;
+    margin: 4px;
+    border-bottom: 1px solid black;
   }
-  thead, tbody, tfoot {
-    border-bottom: 1px solid #333;
-    tr {
-      border-bottom: 1px solid #333;
-      th {
-        border-bottom: 1px solid #333;  
-        border-top: 0px solid #333;
-      }
-      td { 
-        border-bottom: 1px solid #333;
-      }
+  .col-md-3 {
+    vertical-align: middle;
+    p {
+      margin: 1px;
     }
   }
 }

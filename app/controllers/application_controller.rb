@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     flash.notice = 'No page found!'
     redirect_to root_path
   end
+
   # redirecting unauthorized accesses to root page and giving proper message
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::Base
       format.js   { head :forbidden, content_type: 'text/html' }
     end
   end
-
+  # redirecting searches for users that doesn't exist
   rescue_from ActiveRecord::RecordNotFound do |exception|
     respond_to do |format|
       format.json { head :forbidden, content_type: 'text/html' }

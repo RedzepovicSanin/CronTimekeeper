@@ -1,0 +1,32 @@
+.container-fluid.user-table
+  .row
+    .col-md-12
+      h4 = "#{user_type.upcase} TABLE"
+  .row
+    .col-md-3
+      h5 Firstname
+    .col-md-3
+      h5 Lastname
+    .col-md-3
+      h5 Email
+    .col-md-3
+  - users.each do |user|
+    .row
+      .col-md-3
+        p = user.first_name
+      .col-md-3
+        p = user.last_name
+      .col-md-3
+        p = user.email
+      .col-md-3.actions
+        ul
+          - if can? :delete, users
+            li = link_to 'Delete', user_path(user), data: { confirm: "Are you sure?" }, method: :delete
+          - if can? :read, users
+            li = link_to 'Profile', user_path(user)
+          - if can? :update, users
+            li = link_to 'Edit', edit_user_path(user)
+  - if can? :create, users
+    .row
+      .col-md-12
+        = link_to "Create New #{user_type}", new_user_path(type: :user_type)
