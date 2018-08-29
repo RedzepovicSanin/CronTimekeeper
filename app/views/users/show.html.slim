@@ -9,3 +9,6 @@ p
 = link_to ' Back ', users_path
 - if can? :update, @user
   = link_to ' Edit ', edit_user_path(@user)
+
+= hidden_field_tag :fetch_hours_url, user_fetch_hours_path(@user), class: 'js-fetch-hours-url'
+#calendar
