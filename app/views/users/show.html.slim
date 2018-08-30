@@ -1,3 +1,5 @@
+= javascript_include_tag "calendar"
+
 - if notice
   p#notice = notice
 
@@ -10,5 +12,9 @@ p
 - if can? :update, @user
   = link_to ' Edit ', edit_user_path(@user)
 
-= hidden_field_tag :fetch_hours_url, user_fetch_hours_path(@user), class: 'js-fetch-hours-url'
+= hidden_field_tag :user_events_url, user_events_path(@user), class: 'js-fetch-events'
+
+- if can? :create, @event
+  = link_to 'Generate Work Days', nil, data: { url: user_events_path(@user.id), data: @workevent },
+    class: 'js-create-events btn'
 #calendar

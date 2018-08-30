@@ -3,30 +3,30 @@
     .col-md-12
       h4 = "#{user_type.upcase} TABLE"
   .row
-    .col-md-3
-      h5 Firstname
-    .col-md-3
-      h5 Lastname
-    .col-md-3
-      h5 Email
-    .col-md-3
+    .col-md-3.user-info
+      h5 = t('firstname')
+    .col-md-3.user-info
+      h5 = t('lastname')
+    .col-md-3.user-info
+      h5 = t('email')
+    .col-md-3.user-info
   - users.each do |user|
     .row
-      .col-md-3
+      .col-md-3.user-info
         p = user.first_name
-      .col-md-3
+      .col-md-3.user-info
         p = user.last_name
-      .col-md-3
+      .col-md-3.user-info
         p = user.email
-      .col-md-3.actions
+      .col-md-3.actions.user-info
         ul
           - if can? :delete, users
             li = link_to 'Delete', user_path(user), data: { confirm: "Are you sure?" }, method: :delete
           - if can? :read, users
-            li = link_to 'Profile', user_path(user)
+            li = link_to 'Profile', user_path(user), method: :get 
           - if can? :update, users
             li = link_to 'Edit', edit_user_path(user)
   - if can? :create, users
     .row
       .col-md-12
-        = link_to "Create New #{user_type}", new_user_path(type: :user_type)
+        = link_to "Create New #{user_type}", new_user_path(type: user_type)

@@ -30,4 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  users:
+    users_table:
+      firstname: 'Firstname'
+      lastname: 'Lastname'
+      email: 'Email'
+  

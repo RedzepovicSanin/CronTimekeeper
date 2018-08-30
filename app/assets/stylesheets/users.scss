@@ -5,7 +5,7 @@
     margin: 4px;
     border-bottom: 1px solid black;
   }
-  .col-md-3 {
+  .user-info {
     vertical-align: middle;
     p {
       margin: 1px;
@@ -24,4 +24,14 @@ a {
 }
 a:hover {
   color: rgb(61, 170, 128);
+}
+.js-create-events {
+  display: block;
+  width: 20%;
+  background-color: rgb(110, 177, 151);
+  color: black;
+}
+.js-create-events:hover {
+  background-color: rgb(61, 170, 128);
+  color: black;
 }
