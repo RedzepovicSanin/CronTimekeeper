@@ -23,5 +23,5 @@ html
         - if alert
           p.alert = alert
     div.container-fluid
-      div class=('main' unless controller?("dashboard", "users") && action?("index", "show"))
+      div class=('main' unless controller?("dashboard", "users", "events") && action?("index", "show"))
         = yield
