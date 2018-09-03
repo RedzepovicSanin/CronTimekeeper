@@ -9,6 +9,7 @@ $(function() {
       right: 'month,agendaWeek,agendaDay'
     },
     defaultView: 'agendaWeek',
+    showNonCurrentDates: false,
     allDay: false,
     minTime: "08:00:00",
     maxTime: "19:00:00",
@@ -29,13 +30,16 @@ $(function() {
     $.ajax({
       type: 'POST',
       url: btn.data('url'),
+      data: { 
+        start: $('#calendar').fullCalendar('getView').start._d,
+        end: $('#calendar').fullCalendar('getView').end._d
+       },
       dataType: 'json',
-      data: btn.data('data'),
       success: function() {
         $('#calendar').fullCalendar('refetchEvents');
       },
       error: function() {
-        alert('warning');
+        //alert('warning');
       }
     });
   })

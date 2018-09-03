@@ -8,15 +8,6 @@ class UsersController < ApplicationController
     @employees = Employee.all
   end
 
-  def show 
-    @workevent = {
-      event_type: 'working',
-      start_at: '2018-08-29T08:00:00Z', 
-      end_at: '2018-08-29T17:00:00Z', 
-      user_id: @user.id
-    }
-  end
-
   def new
     @user = User.new
   end

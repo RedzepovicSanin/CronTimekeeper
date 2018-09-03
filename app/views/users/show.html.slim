@@ -15,6 +15,6 @@ p
 = hidden_field_tag :user_events_url, user_events_path(@user), class: 'js-fetch-events'
 
 - if can? :create, @event
-  = link_to 'Generate Work Days', nil, data: { url: user_events_path(@user.id), data: @workevent },
+  = link_to 'Generate', nil, data: { url: generate_user_events_url(user_id: @user.id) },
     class: 'js-create-events btn'
 #calendar

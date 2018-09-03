@@ -1,0 +1,6 @@
+en:
+  users:
+    users_table:
+      firstname: 'Firstname'
+      lastname: 'Lastname'
+      email: 'Email'
