@@ -45,25 +45,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def fetch_hours
-    # hardkodirani eventi
-    events = [
-      {
-        title: 'Working',
-        start: '2018-08-27T08:00:00',
-        end: '2018-08-27T17:00:00'
-      },
-      {
-        title: 'Working',
-        start: '2018-08-28T08:15:00',
-        end: '2018-08-28T17:15:00'
-      }
-    ]
-
-    render json: events
-  end
-  helper_method :fetch_hours
-
   private
     def set_user
       @user = User.find(params[:id])

@@ -14,12 +14,4 @@ class ApplicationController < ActionController::Base
       format.js   { head :forbidden, content_type: 'text/html' }
     end
   end
-  # redirecting searches for users that doesn't exist
-  rescue_from ActiveRecord::RecordNotFound do |exception|
-    respond_to do |format|
-      format.json { head :forbidden, content_type: 'text/html' }
-      format.html { redirect_to users_path, notice: "That user doesn't exist!" }
-      format.js   { head :forbidden, content_type: 'text/html' }
-    end
-  end
 end

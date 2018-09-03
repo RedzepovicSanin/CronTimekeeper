@@ -17,33 +17,8 @@
 //= require bootstrap
 //= require moment 
 //= require fullcalendar
-//= require_tree .
 
 // Turning notifications off after 5 seconds
 setTimeout(function() {
   $(".notifications").fadeOut().empty();
 }, 5000);
-
-// Full calendar
-$(function() {
-  $('#calendar').each(function() {
-    var url = $('.js-fetch-hours-url').val()
-    console.log(url);
-    var calendar = $(this);
-    calendar.fullCalendar({
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
-      },
-      events: {
-        url: url,
-        type: 'GET',
-        contentType: "application/json" ,
-        error: function() {
-          alert('Something wrong with fetching events!');
-        }
-      }
-    });
-  })
-});
